@@ -10,6 +10,7 @@
     "aws",
     "lambda"
   ],
+  "repository": "git@github.com:lg/lambda-job.git",
   "author": "Larry Gadea",
   "license": "ISC",
   "dependencies": {
