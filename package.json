@@ -1,7 +1,7 @@
 {
   "name": "lambda-job",
   "version": "1.0.0",
-  "description": "Use AWS Lambda to run scalable server-side code from a web browser",
+  "description": "Use AWS Lambda to run scalable server-side code from the web browser",
   "main": "./lib/lambda-job.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,13 @@
     "aws",
     "lambda"
   ],
-  "repository": "git@github.com:lg/lambda-job.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lg/lambda-job.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lg/lambda-job/issues"
+  },
   "author": "Larry Gadea",
   "license": "ISC",
   "dependencies": {
