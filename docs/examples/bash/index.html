@@ -1,0 +1,26 @@
+<head>
+  <meta charset="UTF-8">
+
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.2.min.js"></script>
+  <script src="../../../lib/lambda-job.js"></script>
+</head>
+
+Command to run:<br/>
+<input type="text" id="command" value="/sbin/ifconfig" size=50>
+<button onclick="doTheDeed();">Do the deed</button><br/>
+<br/>
+Result:<br/>
+<textarea rows=10 cols=80 readonly id="result"></textarea><br/>
+
+<script type="text/javascript">
+
+function doTheDeed() {
+  AWS.config.update({accessKeyId: "CHANGETHIS", secretAccessKey: "CHANGETHIS", region: "us-west-2"});
+  var lambdaJob = new LambdaJobClient();
+
+  lambdaJob.invoke("bash", {cmd: document.getElementById("command").value}, function (err, output) {
+    document.getElementById("result").value = output;
+  }); 
+}
+
+</script>

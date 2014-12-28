@@ -23,10 +23,9 @@ From the web browser:
 
 ```javascript
 var lambdaJob = new LambdaJobClient();
-lambdaJob.invoke("bash", {cmd: "traceroute www.google.com"}, function (err, output) {
-  console.log("Route to Google from AWS:");
+lambdaJob.invoke("bash", {cmd: "/sbin/ifconfig"}, function (err, output) {
   console.log(output);
-}
+});
 ```
 
 The Lambda job:
@@ -42,6 +41,19 @@ function jobReceived(params, errDataCallback) {
     errDataCallback(err, consoleOutput);
   }
 }
+```
+
+Outputs in the web browser:
+
+```
+vsb_20    Link encap:Ethernet  HWaddr 26:3A:68:14:69:21  
+          inet addr:192.168.20.21  Bcast:0.0.0.0  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:54 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:52 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:23982 (23.4 KiB)  TX bytes:10948 (10.6 KiB)
+[...]
 ```
 
 ## Prerequisites
@@ -91,3 +103,8 @@ function jobReceived(params, errDataCallback) {
 4. Create your Lambda and set this S3 bucket as your S3 source. It's recommended to use the full 1024MB of RAM since it seems things are faster this way.
 6. In your Lambda, upload your files to AWS, making sure you included the npm module.
 7. Browse to index.html either where you've hosted it, or locally.
+
+## Examples
+
+- *bash* shows how you can run custom binaries on Lambda. It also provides convenient access to explore the Lambda VM and what's available.
+- *nomocors* shows how you could use LambdaJob to proxy around CORS restrictions. Great for client-side automation.
