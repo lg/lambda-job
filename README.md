@@ -15,6 +15,7 @@ LambdaJob provides real-time invoking and completion detection of AWS Lambda fun
 - Low-latency and performance focus throughout
 - Maximum job throttling (to stay under the 25 Lambda limit)
 - Shared SQS queue per client
+- Helper for calling commandline applications on Lambda
 
 ## Usage
 
@@ -31,9 +32,6 @@ lambdaJob.invoke("bash", {cmd: "traceroute www.google.com"}, function (err, outp
 The Lambda job:
 
 ```javascript
-var AWS = require('aws-sdk');
-AWS.config.update({accessKeyId: "aaa", secretAccessKey: "bbb", region: "us-west-2"});
-
 var LambdaJob = require('lambda-job');
 var lambdaJob = new LambdaJob.LambdaJobWorker(AWS, jobReceived);
 exports.handler = lambdaJob.lambdaHandler;
