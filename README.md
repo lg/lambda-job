@@ -56,6 +56,13 @@ vsb_20    Link encap:Ethernet  HWaddr 26:3A:68:14:69:21
 [...]
 ```
 
+## Options
+- `debugLog`: Turn debug logging on/off. Useful to turn on to see how LambdaJob works. *(default: false)*
+- `maxActiveJobs`: Throttle how many jobs can run at once. Note AWS has a hard limit of 25 active jobs at any one point. *(default: 25)*
+- `jobTimeout`: The maximum amount of time (in ms) that a job can run for. *(default: 30000)*
+- `s3BucketPrefix`: Since we create S3 objects for every desired job, the bucket they're inside of has this prefix. Note that S3 buckets are in a global namespace with other people. *(default: lambda-job-)*
+- `sqsQueuePrefix`: Like the s3BucketPrefix except for SQS queues. *(default: lambda-job-)*
+
 ## Prerequisites
 
 1. Create an IAM user with the following permissions:
@@ -101,7 +108,7 @@ vsb_20    Link encap:Ethernet  HWaddr 26:3A:68:14:69:21
           </CORSRule>
         </CORSConfiguration>
 4. Create your Lambda and set this S3 bucket as your S3 source. It's recommended to use the full 1024MB of RAM since it seems things are faster this way.
-6. In your Lambda, upload your files to AWS, making sure you included the npm module.
+6. In your Lambda, upload your files to AWS, making sure you included the npm modules you'll need in the archive.
 7. Browse to index.html either where you've hosted it, or locally.
 
 ## Examples
