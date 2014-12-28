@@ -1,0 +1,28 @@
+{
+  "name": "lambda-job",
+  "version": "1.0.0",
+  "homepage": "https://github.com/lg/lambda-job",
+  "authors": [
+    "Larry Gadea <trivex@gmail.com>"
+  ],
+  "description": "Use AWS Lambda to run scalable server-side code from the web browser",
+  "main": "lib/lambda-job.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "aws",
+    "lambda"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "aws-sdk": "~2.1.4"
+  }
+}
