@@ -37,6 +37,7 @@ var lambdaJob = new LambdaJob.LambdaJobWorker(AWS, jobReceived);
 exports.handler = lambdaJob.lambdaHandler;
 
 function jobReceived(params, errDataCallback) {
+  console.log("Will run: bash -c " + params.cmd + "...");
   lambdaJob.execHelper(params.cmd, function(err, consoleOutput) {
     errDataCallback(err, consoleOutput);
   }
