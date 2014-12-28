@@ -20,7 +20,7 @@ function doTheDeed() {
   document.getElementById("result").value = "";
 
   AWS.config.update({accessKeyId: "CHANGETHIS", secretAccessKey: "CHANGETHIS", region: "us-west-2"});
-  var lambdaJob = new LambdaJobClient();
+  var lambdaJob = new LambdaJobClient({debugLog: true});
 
   for (var i = 0; i < parseInt(document.getElementById("parallelJobs").value); i++) {
     lambdaJob.invoke("nomocors", {url: document.getElementById("url").value}, function (err, output) {

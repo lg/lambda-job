@@ -16,7 +16,7 @@ Result: (recommended you also open the JS console)<br/>
 
 function doTheDeed() {
   AWS.config.update({accessKeyId: "CHANGETHIS", secretAccessKey: "CHANGETHIS", region: "us-west-2"});
-  var lambdaJob = new LambdaJobClient();
+  var lambdaJob = new LambdaJobClient({debugLog: true});
 
   lambdaJob.invoke("bash", {cmd: document.getElementById("command").value}, function (err, output) {
     document.getElementById("result").value = output;
