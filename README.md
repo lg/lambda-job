@@ -113,5 +113,8 @@ vsb_20    Link encap:Ethernet  HWaddr 26:3A:68:14:69:21
 
 ## Examples
 
+Before running any of these examples make sure you do the permissions related things above and also change the `CHANGEME` text in the `index.html` and `index.js` files to be your AWS keys.
+
 - *bash* shows how you can run custom binaries on Lambda. It also provides convenient access to explore the Lambda VM and what's available.
 - *nomocors* shows how you could use LambdaJob to proxy around CORS restrictions. Great for client-side automation.
+- *runcasperjs* shows how you can do web scriping from Lambda.
