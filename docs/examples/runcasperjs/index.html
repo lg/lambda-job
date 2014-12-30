@@ -1,0 +1,35 @@
+<head>
+  <meta charset="UTF-8">
+
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.2.min.js"></script>
+  <script src="../../../lib/lambda-job.js"></script>
+</head>
+
+CasperJS/PhantomJS script to run:<br/>
+<textarea rows=10 cols=80 id="theScript">
+var casper = require('casper').create();
+casper.start('http://casperjs.org/', function() {
+    this.echo(this.getTitle());
+});
+casper.thenOpen('http://phantomjs.org', function() {
+    this.echo(this.getTitle());
+});
+casper.run();
+</textarea><br/>
+<button onclick="doTheDeed();">Do the deed</button><br/>
+<br/>
+Result: (recommended you also open the JS console)<br/>
+<textarea rows=10 cols=80 readonly id="result"></textarea><br/>
+
+<script type="text/javascript">
+
+function doTheDeed() {
+  AWS.config.update({accessKeyId: "CHANGETHIS", secretAccessKey: "CHANGETHIS", region: "us-west-2"});
+  var lambdaJob = new LambdaJobClient({debugLog: true});
+
+  lambdaJob.invoke("runcasperjs", {script: document.getElementById("theScript").value}, function (err, output) {
+    document.getElementById("result").value = output;
+  }); 
+}
+
+</script>
