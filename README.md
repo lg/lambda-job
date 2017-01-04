@@ -5,7 +5,7 @@
 [version]: http://img.shields.io/npm/v/lambda-job.svg?style=flat-square
 [bower]: https://img.shields.io/bower/v/lambda-job.svg?style=flat-square
 
-** THIS PROJECT IS NO LONGER MAINTAINED -- Amazon has integrated this functionality straight into Lambda! **
+**THIS PROJECT IS NO LONGER MAINTAINED -- Amazon has integrated this functionality straight into Lambda!**
 
 LambdaJob provides real-time invoking and completion detection of AWS Lambda functions from JavaScript on the clientside's web browser. This makes it easy to scale things like: scraping websites, thumbnail generation of images/videos, running custom binaries, etc.
 
